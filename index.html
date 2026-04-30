@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>类 Rust 中间代码生成器</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Compiler Principle Project</p>
+        <h1>类 Rust 中间代码生成器</h1>
+      </div>
+      <div class="actions">
+        <select id="sampleSelect" aria-label="选择示例程序"></select>
+        <button id="loadSampleBtn" class="secondary" type="button">载入示例</button>
+        <button id="compileBtn" type="button">编译分析</button>
+      </div>
+    </header>
+
+    <section class="workspace">
+      <section class="editor-panel" aria-label="源代码编辑区">
+        <div class="panel-head">
+          <div>
+            <h2>源程序</h2>
+            <p>支持函数、变量、表达式、函数调用、if、while、break/continue 等基础项。</p>
+          </div>
+          <button id="clearBtn" class="ghost" type="button">清空</button>
+        </div>
+        <textarea id="sourceInput" spellcheck="false" aria-label="输入类 Rust 源代码"></textarea>
+      </section>
+
+      <section class="result-panel" aria-label="分析结果">
+        <div class="status-row">
+          <div class="status-card">
+            <span class="metric-label">诊断</span>
+            <strong id="diagCount">0</strong>
+          </div>
+          <div class="status-card">
+            <span class="metric-label">四元式</span>
+            <strong id="quadCount">0</strong>
+          </div>
+          <div class="status-card">
+            <span class="metric-label">符号</span>
+            <strong id="symbolCount">0</strong>
+          </div>
+        </div>
+
+        <nav class="tabs" aria-label="结果切换">
+          <button class="tab active" data-tab="diagnostics" type="button">诊断</button>
+          <button class="tab" data-tab="quads" type="button">四元式</button>
+          <button class="tab" data-tab="symbols" type="button">符号表</button>
+          <button class="tab" data-tab="tokens" type="button">Token</button>
+          <button class="tab" data-tab="ast" type="button">AST</button>
+        </nav>
+
+        <div class="tab-body active" id="diagnostics"></div>
+        <div class="tab-body" id="quads"></div>
+        <div class="tab-body" id="symbols"></div>
+        <div class="tab-body" id="tokens"></div>
+        <div class="tab-body" id="ast"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="compiler.js"></script>
+</body>
+</html>
