@@ -1,0 +1,14 @@
+{
+  "name": "rust-like-ir-generator",
+  "version": "0.2.0",
+  "description": "类 Rust 编译前端 / 中间代码生成器（同济大学编译原理课程大作业 2）",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "node build.js",
+    "test": "node tests/run-tests.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
