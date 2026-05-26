@@ -19,19 +19,20 @@
         <button id="compileBtn" type="button">编译分析</button>
       </div>
     </header>
-
     <section class="workspace">
       <section class="editor-panel" aria-label="源代码编辑区">
         <div class="panel-head">
           <div>
             <h2>源程序</h2>
-            <p>支持函数、变量、表达式、函数调用、if、while、break/continue 等基础项。</p>
+            <p>支持函数、变量、表达式、函数调用、if、while、break/continue、数组、元组、引用等。</p>
           </div>
           <button id="clearBtn" class="ghost" type="button">清空</button>
         </div>
-        <textarea id="sourceInput" spellcheck="false" aria-label="输入类 Rust 源代码"></textarea>
+        <div class="editor-area">
+          <pre id="lineNumbers" class="line-numbers" aria-hidden="true">1</pre>
+          <textarea id="sourceInput" spellcheck="false" aria-label="输入类 Rust 源代码"></textarea>
+        </div>
       </section>
-
       <section class="result-panel" aria-label="分析结果">
         <div class="status-row">
           <div class="status-card">
@@ -47,7 +48,6 @@
             <strong id="symbolCount">0</strong>
           </div>
         </div>
-
         <nav class="tabs" aria-label="结果切换">
           <button class="tab active" data-tab="diagnostics" type="button">诊断</button>
           <button class="tab" data-tab="quads" type="button">四元式</button>
@@ -55,7 +55,6 @@
           <button class="tab" data-tab="tokens" type="button">Token</button>
           <button class="tab" data-tab="ast" type="button">AST</button>
         </nav>
-
         <div class="tab-body active" id="diagnostics"></div>
         <div class="tab-body" id="quads"></div>
         <div class="tab-body" id="symbols"></div>
@@ -64,7 +63,6 @@
       </section>
     </section>
   </main>
-
-  <script src="compiler.js"></script>
+  <script src="dist/compiler.bundle.js"></script>
 </body>
 </html>
